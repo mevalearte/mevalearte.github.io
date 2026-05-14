@@ -1,0 +1,200 @@
+/* TEMA CLARO */
+#experiencia {
+  background: linear-gradient(180deg, var(--color-lavender-50) 0%, var(--color-lavender-100) 100%);
+  overflow: visible;
+}
+
+.experience-box {
+  background: var(--color-surface);
+  padding: 40px;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+  border-left: 5px solid var(--color-primary);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-24);
+}
+
+.experience-content h3 {
+  color: var(--color-lavender-900);
+  margin-bottom: var(--space-16);
+}
+
+.exhibition-trigger {
+  display: flex;
+  align-items: center;
+  gap: var(--space-20);
+  padding: var(--space-20);
+  background: linear-gradient(to right, var(--color-lavender-100), var(--color-surface));
+  border-radius: var(--radius-md);
+  cursor: url('../../images/cursor/pointer.png'), pointer;
+  transition: var(--transition);
+  border: 1px solid var(--color-lavender-200);
+}
+
+.exhibition-trigger:hover {
+  background: var(--color-lavender-200);
+  transform: scale(1.02);
+}
+
+.trigger-icon { font-size: 32px; }
+.trigger-text h3 { font-size: var(--font-size-xl); color: var(--color-primary); }
+
+/* Modal */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 2000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.8);
+  backdrop-filter: blur(5px);
+  overflow: auto;
+  animation: fadeIn 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.modal-content {
+  background-color: var(--color-surface);
+  margin: 5% auto;
+  padding: var(--space-32);
+  border-radius: var(--radius-lg);
+  width: 95%;
+  max-width: 1400px; /* Aumentado para ser más grande */
+  position: relative;
+  /* Animation for content */
+  transform: scale(0.9);
+  opacity: 0;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.modal-content.animate-modal {
+  background-color: var(--color-lavender-200);
+  transform: scale(1);
+  opacity: 1;
+}
+
+.close-modal {
+  position: absolute;
+  top: var(--space-16);
+  right: var(--space-24);
+  font-size: 32px;
+  cursor: url('../../images/cursor/pointer.png'), pointer;
+  transition: transform 0.3s ease, color 0.3s ease;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}
+
+.close-modal:hover {
+  color: var(--color-primary);
+  transform: rotate(90deg) scale(1.2);
+  background-color: var(--color-lavender-100);
+}
+
+.modal-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-16);
+  margin-top: var(--space-24);
+}
+
+.modal-grid img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: var(--radius-md);
+  transition: transform 0.3s ease;
+}
+
+.modal-grid img:hover {
+  transform: scale(1.05);
+  cursor: url('../../images/cursor/pointer.png'), pointer; /* Indicar que es clickable */
+}
+
+@media (max-width: 768px) {
+  .modal-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* LIGHTBOX STYLES */
+.lightbox {
+  display: none;
+  position: fixed;
+  z-index: 3000; /* Por encima del modal (2000) */
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.95);
+  justify-content: center;
+  align-items: center;
+  backdrop-filter: blur(5px);
+}
+
+.lightbox-img {
+  max-width: 90%;
+  max-height: 90vh;
+  object-fit: contain;
+  border-radius: var(--radius-sm);
+  box-shadow: 0 0 20px rgba(0,0,0,0.5);
+  animation: zoomIn 0.3s ease;
+  transition: transform 0.2s ease-out; /* Suavizar el zoom */
+  cursor: zoom-in;
+}
+
+@keyframes zoomIn {
+  from { transform: scale(0.9); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+.lightbox-close {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  color: white;
+  font-size: 40px;
+  font-weight: bold;
+  cursor: url('../../images/cursor/pointer.png'), pointer;
+  z-index: 3001;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.lightbox-close:hover {
+  transform: scale(1.2) rotate(90deg);
+  color: var(--color-primary);
+}
+
+.lightbox-prev,
+.lightbox-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  border: none;
+  font-size: 40px;
+  padding: 20px;
+  cursor: url('../../images/cursor/pointer.png'), pointer;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+}
+
+.lightbox-prev:hover,
+.lightbox-next:hover {
+  background: rgba(255, 255, 255, 0.4);
+  transform: translateY(-50%) scale(1.1);
+}
+
+.lightbox-prev { left: 20px; }
+.lightbox-next { right: 20px; }

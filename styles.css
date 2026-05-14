@@ -1,0 +1,10 @@
+/* Main Stylesheet - Imports all modules */
+@import "css/variables.css";
+@import "css/global.css";
+@import "css/layout.css";
+@import "css/sections/hero.css";
+@import "css/sections/about.css";
+@import "css/sections/skills.css";
+@import "css/sections/portfolio.css";
+@import "css/sections/experience.css";
+@import "css/decorations.css";

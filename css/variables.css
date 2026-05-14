@@ -1,0 +1,97 @@
+:root {
+  /* Primitive Color Tokens - Lavender & Light Theme */
+  --color-white: rgba(255, 255, 255, 1);
+  --color-black: rgba(0, 0, 0, 1);
+
+  /* Lavanda (Primary) */
+  --color-lavender-50: rgba(250, 245, 255, 1);
+  --color-lavender-100: rgba(243, 232, 255, 1);
+  --color-lavender-200: rgba(233, 213, 255, 1);
+  --color-lavender-300: rgba(216, 180, 254, 1);
+  --color-lavender-400: rgba(192, 132, 252, 1);
+  --color-lavender-500: rgba(168, 85, 247, 1);
+  --color-lavender-600: rgba(147, 51, 234, 1);
+  --color-lavender-700: rgba(126, 34, 206, 1);
+  --color-lavender-900: rgba(88, 28, 135, 1);
+
+  /* Mauve/Pink (Secondary/Accents) */
+  --color-mauve-50: rgba(253, 242, 248, 1);
+  --color-mauve-100: rgba(252, 231, 243, 1);
+  --color-mauve-200: rgba(251, 207, 232, 1);
+  --color-mauve-500: rgba(236, 72, 153, 1);
+
+  /* Slate/Gray (Text) */
+  --color-slate-500: rgba(100, 116, 139, 1);
+  --color-slate-900: rgba(15, 23, 42, 1);
+
+  /* Functional Colors */
+  --color-teal-500: rgba(20, 184, 166, 1);
+  --color-teal-300: rgba(50, 184, 198, 1);
+
+  /* RGB versions */
+  --color-teal-500-rgb: 168, 85, 247;
+
+  /* Semantic Color Tokens */
+  --color-background: var(--color-lavender-50);
+  --color-surface: var(--color-white);
+  --color-text: var(--color-slate-900);
+  --color-text-secondary: var(--color-slate-500);
+
+  --color-primary: var(--color-lavender-500);
+  --color-primary-hover: var(--color-lavender-600);
+  --color-secondary: var(--color-lavender-100);
+  --color-border: var(--color-lavender-200);
+  --color-btn-primary-text: var(--color-white);
+
+  /* Typography */
+  --font-family-base: "Times New Roman", Times, serif;
+  --font-family-mono: "Berkeley Mono", monospace;
+  --font-size-sm: 12px;
+  --font-size-base: 18px;
+  --font-size-lg: 22px;
+  --font-size-xl: 24px;
+  --font-size-2xl: 28px;
+  --font-size-3xl: 36px;
+  --font-size-4xl: 48px;
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 550;
+  --line-height-tight: 1.2;
+  --line-height-normal: 1.5;
+  --letter-spacing-tight: -0.01em;
+
+  /* Spacing */
+  --space-4: 4px;
+  --space-6: 6px;
+  --space-8: 8px;
+  --space-12: 12px;
+  --space-16: 16px;
+  --space-20: 20px;
+  --space-24: 24px;
+  --space-32: 32px;
+
+  /* Border Radius */
+  --radius-sm: 6px;
+  --radius-base: 8px;
+  --radius-md: 10px;
+  --radius-lg: 12px;
+  --radius-full: 9999px;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 3px rgba(88, 28, 135, 0.1);
+  --shadow-md: 0 4px 6px -1px rgba(88, 28, 135, 0.1);
+  --shadow-lg: 0 10px 15px -3px rgba(88, 28, 135, 0.1);
+
+  /* Animation */
+  --duration-normal: 250ms;
+  --ease-standard: cubic-bezier(0.16, 1, 0.3, 1);
+  --transition: all var(--duration-normal) var(--ease-standard);
+
+  /* Layout */
+  --container-xl: 1280px;
+}
+
+@font-face {
+  font-family: 'FKGroteskNeue';
+  src: url('https://r2cdn.perplexity.ai/fonts/FKGroteskNeue.woff2') format('woff2');
+}

@@ -1,0 +1,267 @@
+/* ===========================
+   HEADER
+   =========================== */
+.header {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; /* Changed to accommodate padding shift */
+  background: linear-gradient(180deg, var(--color-lavender-200) 0%, var(--color-lavender-300) 100%);
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  padding-bottom: 10vh; /* Push content up slightly */
+}
+
+.header::before {
+  content: '';
+  position: absolute;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(168, 85, 247, 0.2) 0%, transparent 70%);
+  border-radius: 50%;
+  animation: float 6s ease-in-out infinite;
+  top: -100px;
+  right: -100px;
+  z-index: 0;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(30px); }
+}
+
+.logo-container {
+  margin-bottom: var(--space-32);
+  position: relative;
+  z-index: 10;
+}
+
+.logo-circle {
+  width: 350px;
+  height: 350px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, color-mix(in srgb, var(--color-lavender-300), transparent 30%), color-mix(in srgb, var(--color-lavender-500), transparent 30%));
+  box-shadow: var(--shadow-lg);
+  animation: pulse-logo 3s ease-in-out infinite;
+  overflow: hidden;
+}
+
+.logo-circle img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+@keyframes pulse-logo {
+  0%, 100% { transform: scale(1); box-shadow: 0 10px 25px -5px rgba(168, 85, 247, 0.4); }
+  50% { transform: scale(1.05); box-shadow: 0 20px 50px -10px rgba(168, 85, 247, 0.6); }
+}
+
+.artist-name {
+  font-size: 50px;
+  color: var(--color-lavender-900);
+  text-align: center;
+  margin-bottom: var(--space-16);
+  position: relative;
+  z-index: 2;
+  animation: fadeInDown 1s ease-out;
+}
+
+@keyframes fadeInDown {
+  from { opacity: 0; transform: translateY(-30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.subtitle {
+  font-size: var(--font-size-2xl);
+  color: var(--color-lavender-700);
+  letter-spacing: 1px;
+  font-weight: var(--font-weight-normal);
+  position: relative;
+  z-index: 2;
+  animation: fadeInUp 1s ease-out 0.2s both;
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 480px) {
+  .logo-circle { width: 180px; height: 180px; }
+  .artist-name { font-size: var(--font-size-2xl); }
+  .subtitle { font-size: var(--font-size-base); }
+}
+
+/* Scroll Indicator */
+.scroll-indicator {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  z-index: 10;
+  color: var(--color-lavender-900);
+  opacity: 0.8;
+}
+
+.scroll-indicator p {
+  font-size: var(--font-size-lg);
+  margin-bottom: var(--space-8);
+  font-weight: var(--font-weight-medium);
+  letter-spacing: 0.5px;
+}
+
+.arrow-down {
+  animation: bounce 2s infinite;
+  display: flex;
+  justify-content: center;
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+  40% { transform: translateY(-10px); }
+  60% { transform: translateY(-5px); }
+}
+
+/* Particles */
+#particles-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 1; /* Behind content (z-index 2+) but above background */
+  pointer-events: none;
+}
+
+.particle {
+  position: absolute;
+  bottom: -50px;
+  background-color: var(--color-lavender-500);
+  border-radius: 50%;
+  opacity: 0;
+  filter: blur(4px); /* Difuminado */
+  animation: floatUp linear infinite;
+}
+
+@keyframes floatUp {
+  0% {
+    transform: translateY(0) scale(1);
+    opacity: 0;
+  }
+  20% { opacity: 0.6; }
+  80% { opacity: 0.6; }
+  100% {
+    transform: translateY(-110vh) scale(1.5);
+    opacity: 0;
+  }
+}
+
+/* ===========================
+   FOOTER
+   =========================== */
+.footer {
+  /* Changed from slate-900 (black) to lavender-900 (dark purple) */
+  background: linear-gradient(135deg, #9738a4 0%, #8c148f 100%);
+  color: var(--color-white);
+  padding: 40px var(--space-20);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.footer-content { max-width: 800px; margin: 0 auto; }
+.footer h2 {
+  margin-bottom: var(--space-20);
+  font-size: var(--font-size-4xl); /* Título más grande */
+}
+.footer p {
+  opacity: 0.9;
+  margin-bottom: var(--space-24);
+  font-size: var(--font-size-xl); /* Texto descriptivo más grande */
+}
+
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-20);
+  margin-bottom: var(--space-32);
+}
+
+.contact-item {
+  font-size: var(--font-size-2xl); /* Items de contacto mucho más grandes */
+}
+
+.contact-item a { color: var(--color-teal-300); text-decoration: none; }
+.contact-item a:hover { color: var(--color-white); text-decoration: underline; }
+
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-24);
+  margin-bottom: var(--space-32);
+}
+
+.social-link {
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius-full);
+  color: var(--color-white);
+  transition: var(--transition);
+  backdrop-filter: blur(10px);
+}
+
+.social-link:hover { background: rgba(255, 255, 255, 0.2); transform: translateY(-5px); }
+.footer-credit { font-size: var(--font-size-sm); opacity: 0.7; }
+
+#credits-toggle {
+  cursor: url('../images/cursor/pointer.png'), pointer;
+  text-decoration: underline;
+  transition: color 0.3s ease;
+}
+
+#credits-toggle:hover {
+  color: var(--color-teal-300);
+}
+
+.credits-info {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease, opacity 0.5s ease, margin-top 0.5s ease;
+  opacity: 0;
+  font-size: var(--font-size-base);
+}
+
+.credits-info.show {
+  max-height: 100px;
+  opacity: 1;
+  margin-top: var(--space-16);
+}
+
+.credits-info p {
+  margin-bottom: 4px;
+  font-size: inherit; /* Evitar que herede el tamaño grande del footer */
+}
+
+.credits-info a {
+  color: var(--color-teal-300);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.credits-info a:hover {
+  text-decoration: underline;
+  color: var(--color-white);
+}

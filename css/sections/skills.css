@@ -1,0 +1,75 @@
+/* TEMA CLARO */
+.section-skills {
+  background: linear-gradient(180deg, var(--color-lavender-50) 0%, var(--color-lavender-100) 100%);
+  overflow: visible;
+}
+
+.skills-container {
+  display: flex;
+  align-items: center;
+  gap: var(--space-32);
+}
+
+.skills-image {
+  width: 40%;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+.skills-image:hover {
+  transform: scale(1.02);
+}
+
+.skills-image img { 
+  width: 100%; 
+  height: auto; 
+  max-height: 70vh;
+  object-fit: contain;
+  display: block; 
+}
+.skills-text { width: 60%; }
+
+.skills-question {
+  font-weight: var(--font-weight-bold);
+  color: var(--color-primary);
+  margin-top: var(--space-24);
+  font-size: var(--font-size-lg);
+}
+
+.skills-nav {
+  margin-top: var(--space-16);
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-16);
+  max-width: 400px;
+}
+
+.btn-skill {
+  display: inline-block;
+  padding: var(--space-8) var(--space-20);
+  background-color: var(--color-surface);
+  color: var(--color-primary);
+  border: 2px solid var(--color-primary);
+  border-radius: var(--radius-full);
+  font-weight: var(--font-weight-bold);
+  transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  box-shadow: 3px 3px 0 var(--color-lavender-300);
+  text-align: center;
+}
+
+.btn-skill:hover {
+  background-color: var(--color-lavender-100);
+  transform: translate(-2px, -2px);
+  box-shadow: 5px 5px 0 var(--color-lavender-400);
+}
+
+.btn-skill:active {
+  transform: translate(2px, 2px);
+  box-shadow: 0 0 0 transparent;
+}
+
+@media (max-width: 768px) {
+  .skills-container { flex-direction: column; }
+  .skills-image, .skills-text { width: 100%; }
+}
