@@ -4,6 +4,10 @@
   box-sizing: border-box;
 }
 
+picture {
+  display: contents;
+}
+
 html {
   scroll-behavior: smooth;
   font-size: var(--font-size-base);

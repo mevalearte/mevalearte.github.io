@@ -5,7 +5,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Valeria Artime - Portfolio Artístico</title>
-    <link rel="icon" type="image/png" href="images/logo.png">
+    <link rel="icon" type="image/png" href="images/original/logo.png">
+
+    <!-- Preconnect to Font Services -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
     <!-- Stylesheets -->
     <link rel="stylesheet" href="styles.css">
@@ -15,7 +19,7 @@
 
     <!-- Google Fonts - Elegante -->
     <link
-        href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital@0;1&family=Poppins:wght@300;400;500;600&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital@0;1&family=Poppins:wght@300;400;500;600;700&display=swap"
         rel="stylesheet">
 </head>
 
@@ -23,10 +27,20 @@
     <!-- HEADER CON LOGO -->
     <header class="header">
         <div id="particles-container"></div>
-        <img src="./images/decoraciones/decoracion-1.png" class="decoration decoration-1" alt="" aria-hidden="true" data-aos="fade-down-left" data-aos-duration="1500">
+        <picture>
+            <source type="image/jxl" srcset="./images/jxl/decoraciones/decoracion-1.jxl">
+            <source type="image/avif" srcset="./images/avif/decoraciones/decoracion-1.avif">
+            <source type="image/webp" srcset="./images/webp/decoraciones/decoracion-1.webp">
+            <img src="./images/webp/decoraciones/decoracion-1.webp" class="decoration decoration-1" alt="" aria-hidden="true" width="874" height="1240" data-aos="fade-down-left" data-aos-duration="1500">
+        </picture>
         <div class="logo-container">
             <div class="logo-circle">
-                <img src="./images/logo.png" alt="Logo">
+                <picture>
+                    <source type="image/jxl" srcset="./images/jxl/logo.jxl">
+                    <source type="image/avif" srcset="./images/avif/logo.avif">
+                    <source type="image/webp" srcset="./images/webp/logo.webp">
+                    <img src="./images/webp/logo.webp" alt="Logo" width="700" height="700">
+                </picture>
             </div>
         </div>
         <h1 class="artist-name">Valeria Artime</h1>
@@ -50,7 +64,12 @@
                 <p>—Valeria Artime</p>
             </div>
             <div class="hero-image" data-aos="fade-left" data-aos-duration="1000">
-                <img src="./images/hero-portrait.jpg" alt="Retrato de la artista">
+                <picture>
+                    <source type="image/jxl" srcset="./images/jxl/hero-portrait.jxl">
+                    <source type="image/avif" srcset="./images/avif/hero-portrait.avif">
+                    <source type="image/webp" srcset="./images/webp/hero-portrait.webp">
+                    <img src="./images/webp/hero-portrait.webp" data-original="./images/original/hero-portrait.jpg" alt="Retrato de la artista" width="900" height="1600" fetchpriority="high">
+                </picture>
             </div>
         </div>
     </section>
@@ -60,7 +79,12 @@
         <div class="section-content">
             <div class="about-split" data-aos="fade-up" data-aos-duration="1000">
                 <div class="about-image">
-                    <img src="./images/sobre-mi.jpg" alt="Sobre Mí">
+                    <picture>
+                        <source type="image/jxl" srcset="./images/jxl/sobre-mi.jxl">
+                        <source type="image/avif" srcset="./images/avif/sobre-mi.avif">
+                        <source type="image/webp" srcset="./images/webp/sobre-mi.webp">
+                        <img src="./images/webp/sobre-mi.webp" data-original="./images/original/sobre-mi.jpg" alt="Sobre Mí" width="1500" height="2000" loading="lazy">
+                    </picture>
                 </div>
                 <div class="about-text">
                     <h2>Sobre Mí</h2>
@@ -83,11 +107,15 @@
                         <b>Titulada con matrícula de honor en Bachillerato Artístico.</b>
                         Actualmente cursando Bellas Artes en la Universidad de Salamanca,
                         donde he adquirido conocimientos de Photoshop, Illustrator e InDesign.
-                        
                     </p>
                 </div>
                 <div class="studies-image">
-                    <img src="./images/estudios.jpg" alt="Mis Estudios">
+                    <picture>
+                        <source type="image/jxl" srcset="./images/jxl/estudios.jxl">
+                        <source type="image/avif" srcset="./images/avif/estudios.avif">
+                        <source type="image/webp" srcset="./images/webp/estudios.webp">
+                        <img src="./images/webp/estudios.webp" data-original="./images/original/estudios.jpg" alt="Mis Estudios" width="1428" height="2000" loading="lazy">
+                    </picture>
                 </div>
             </div>
         </div>
@@ -95,11 +123,26 @@
 
     <!-- SECCIÓN 3: HABILIDADES -->
     <section class="section section-skills">
-        <img src="./images/decoraciones/decoracion-2.png" class="decoration decoration-2" alt="" aria-hidden="true" data-aos="fade-right" data-aos-duration="1200">
-        <img src="./images/decoraciones/decoracion-3.png" class="decoration decoration-3" alt="" aria-hidden="true" data-aos="fade-left" data-aos-duration="1200" data-aos-offset="50">
+        <picture>
+            <source type="image/jxl" srcset="./images/jxl/decoraciones/decoracion-2.jxl">
+            <source type="image/avif" srcset="./images/avif/decoraciones/decoracion-2.avif">
+            <source type="image/webp" srcset="./images/webp/decoraciones/decoracion-2.webp">
+            <img src="./images/webp/decoraciones/decoracion-2.webp" class="decoration decoration-2" alt="" aria-hidden="true" width="1280" height="1280" loading="lazy" data-aos="fade-right" data-aos-duration="1200">
+        </picture>
+        <picture>
+            <source type="image/jxl" srcset="./images/jxl/decoraciones/decoracion-3.jxl">
+            <source type="image/avif" srcset="./images/avif/decoraciones/decoracion-3.avif">
+            <source type="image/webp" srcset="./images/webp/decoraciones/decoracion-3.webp">
+            <img src="./images/webp/decoraciones/decoracion-3.webp" class="decoration decoration-3" alt="" aria-hidden="true" width="1280" height="1280" loading="lazy" data-aos="fade-left" data-aos-duration="1200" data-aos-offset="50">
+        </picture>
         <div class="section-content skills-container">
             <div class="skills-image" data-aos="fade-right">
-                <img width="300" src="./images/habilidades/skills-image.jpg" alt="Habilidades">
+                <picture>
+                    <source type="image/jxl" srcset="./images/jxl/habilidades/skills-image.jxl">
+                    <source type="image/avif" srcset="./images/avif/habilidades/skills-image.avif">
+                    <source type="image/webp" srcset="./images/webp/habilidades/skills-image.webp">
+                    <img src="./images/webp/habilidades/skills-image.webp" data-original="./images/original/habilidades/skills-image.jpg" alt="Habilidades" width="2000" height="1500" loading="lazy">
+                </picture>
             </div>
             <div class="skills-text" data-aos="fade-left">
                 <h2>Habilidades</h2>
@@ -124,8 +167,22 @@
         <div class="section-content">
             <h2>Carcasas</h2>
             <div class="portfolio-grid grid-2" data-aos="fade-up">
-                <div class="grid-item"><img src="./images/carcasas/carcasa-1.png" alt="Diseño Carcasa 1"></div>
-                <div class="grid-item"><img src="./images/carcasas/carcasa-2.png" alt="Diseño Carcasa 2"></div>
+                <div class="grid-item">
+                    <picture>
+                        <source type="image/jxl" srcset="./images/jxl/carcasas/carcasa-1.jxl">
+                        <source type="image/avif" srcset="./images/avif/carcasas/carcasa-1.avif">
+                        <source type="image/webp" srcset="./images/webp/carcasas/carcasa-1.webp">
+                        <img src="./images/webp/carcasas/carcasa-1.webp" data-original="./images/original/carcasas/carcasa-1.png" alt="Diseño Carcasa 1" width="915" height="1779" loading="lazy">
+                    </picture>
+                </div>
+                <div class="grid-item">
+                    <picture>
+                        <source type="image/jxl" srcset="./images/jxl/carcasas/carcasa-2.jxl">
+                        <source type="image/avif" srcset="./images/avif/carcasas/carcasa-2.avif">
+                        <source type="image/webp" srcset="./images/webp/carcasas/carcasa-2.webp">
+                        <img src="./images/webp/carcasas/carcasa-2.webp" data-original="./images/original/carcasas/carcasa-2.png" alt="Diseño Carcasa 2" width="915" height="1779" loading="lazy">
+                    </picture>
+                </div>
             </div>
             <p>Dos diseños que realicé para fundas de móviles.</p>
         </div>
@@ -136,8 +193,22 @@
         <div class="section-content">
             <h2 data-aos="fade-right">Sudaderas</h2>
             <div class="portfolio-grid grid-2" data-aos="fade-left" data-aos-delay="200">
-                <div class="grid-item"><img src="./images/sudaderas/sudadera-1.png" alt="Diseño Sudadera 1"></div>
-                <div class="grid-item"><img src="./images/sudaderas/sudadera-2.jpg" alt="Diseño Sudadera 2"></div>
+                <div class="grid-item">
+                    <picture>
+                        <source type="image/jxl" srcset="./images/jxl/sudaderas/sudadera-1.jxl">
+                        <source type="image/avif" srcset="./images/avif/sudaderas/sudadera-1.avif">
+                        <source type="image/webp" srcset="./images/webp/sudaderas/sudadera-1.webp">
+                        <img src="./images/webp/sudaderas/sudadera-1.webp" data-original="./images/original/sudaderas/sudadera-1.png" alt="Diseño Sudadera 1" width="1240" height="1754" loading="lazy">
+                    </picture>
+                </div>
+                <div class="grid-item">
+                    <picture>
+                        <source type="image/jxl" srcset="./images/jxl/sudaderas/sudadera-2.jxl">
+                        <source type="image/avif" srcset="./images/avif/sudaderas/sudadera-2.avif">
+                        <source type="image/webp" srcset="./images/webp/sudaderas/sudadera-2.webp">
+                        <img src="./images/webp/sudaderas/sudadera-2.webp" data-original="./images/original/sudaderas/sudadera-2.jpg" alt="Diseño Sudadera 2" width="1240" height="1754" loading="lazy">
+                    </picture>
+                </div>
             </div>
             <p>Diseños exclusivos aplicados a moda urbana.</p>
         </div>
@@ -148,9 +219,30 @@
         <div class="section-content">
             <h2 data-aos="zoom-in">Fantasmas</h2>
             <div class="portfolio-grid grid-3">
-                <div class="grid-item" data-aos="zoom-in-right" data-aos-delay="200"><img src="./images/fantasmas/fantasma-1.png" alt="Fantasma 1"></div>
-                <div class="grid-item" data-aos="zoom-in-up" data-aos-delay="300"><img src="./images/fantasmas/fantasma-2.png" alt="Fantasma 2"></div>
-                <div class="grid-item" data-aos="zoom-in-left" data-aos-delay="400"><img src="./images/fantasmas/fantasma-3.png" alt="Fantasma 3"></div>
+                <div class="grid-item" data-aos="zoom-in-right" data-aos-delay="200">
+                    <picture>
+                        <source type="image/jxl" srcset="./images/jxl/fantasmas/fantasma-1.jxl">
+                        <source type="image/avif" srcset="./images/avif/fantasmas/fantasma-1.avif">
+                        <source type="image/webp" srcset="./images/webp/fantasmas/fantasma-1.webp">
+                        <img src="./images/webp/fantasmas/fantasma-1.webp" data-original="./images/original/fantasmas/fantasma-1.png" alt="Fantasma 1" width="2000" height="1325" loading="lazy">
+                    </picture>
+                </div>
+                <div class="grid-item" data-aos="zoom-in-up" data-aos-delay="300">
+                    <picture>
+                        <source type="image/jxl" srcset="./images/jxl/fantasmas/fantasma-2.jxl">
+                        <source type="image/avif" srcset="./images/avif/fantasmas/fantasma-2.avif">
+                        <source type="image/webp" srcset="./images/webp/fantasmas/fantasma-2.webp">
+                        <img src="./images/webp/fantasmas/fantasma-2.webp" data-original="./images/original/fantasmas/fantasma-2.png" alt="Fantasma 2" width="1596" height="2000" loading="lazy">
+                    </picture>
+                </div>
+                <div class="grid-item" data-aos="zoom-in-left" data-aos-delay="400">
+                    <picture>
+                        <source type="image/jxl" srcset="./images/jxl/fantasmas/fantasma-3.jxl">
+                        <source type="image/avif" srcset="./images/avif/fantasmas/fantasma-3.avif">
+                        <source type="image/webp" srcset="./images/webp/fantasmas/fantasma-3.webp">
+                        <img src="./images/webp/fantasmas/fantasma-3.webp" data-original="./images/original/fantasmas/fantasma-3.png" alt="Fantasma 3" width="2000" height="1325" loading="lazy">
+                    </picture>
+                </div>
             </div>
             <p data-aos="zoom-in" data-aos-delay="100">Serie de ilustraciones temáticas.</p>
         </div>
@@ -161,8 +253,22 @@
         <div class="section-content">
             <h2 data-aos="flip-up">Vectorial</h2>
             <div class="portfolio-grid grid-2" data-aos="flip-up" data-aos-delay="200">
-                <div class="grid-item"><img src="./images/vectorial/vectorial-1.jpg" alt="Vectorial 1"></div>
-                <div class="grid-item"><img src="./images/vectorial/vectorial-2.jpg" alt="Vectorial 2"></div>
+                <div class="grid-item">
+                    <picture>
+                        <source type="image/jxl" srcset="./images/jxl/vectorial/vectorial-1.jxl">
+                        <source type="image/avif" srcset="./images/avif/vectorial/vectorial-1.avif">
+                        <source type="image/webp" srcset="./images/webp/vectorial/vectorial-1.webp">
+                        <img src="./images/webp/vectorial/vectorial-1.webp" data-original="./images/original/vectorial/vectorial-1.jpg" alt="Vectorial 1" width="1500" height="2000" loading="lazy">
+                    </picture>
+                </div>
+                <div class="grid-item">
+                    <picture>
+                        <source type="image/jxl" srcset="./images/jxl/vectorial/vectorial-2.jxl">
+                        <source type="image/avif" srcset="./images/avif/vectorial/vectorial-2.avif">
+                        <source type="image/webp" srcset="./images/webp/vectorial/vectorial-2.webp">
+                        <img src="./images/webp/vectorial/vectorial-2.webp" data-original="./images/original/vectorial/vectorial-2.jpg" alt="Vectorial 2" width="1500" height="2000" loading="lazy">
+                    </picture>
+                </div>
             </div>
             <p>Ilustración digital y diseño vectorial.</p>
         </div>
@@ -170,26 +276,46 @@
 
     <!-- SECCIÓN 8: PINTURAS AL ÓLEO -->
     <section id="oleo" class="section section-oleo">
-        <img src="./images/decoraciones/decoracion-4.png" class="decoration decoration-4" alt="" aria-hidden="true" data-aos="fade-right" data-aos-duration="1200">
+        <picture>
+            <source type="image/jxl" srcset="./images/jxl/decoraciones/decoracion-4.jxl">
+            <source type="image/avif" srcset="./images/avif/decoraciones/decoracion-4.avif">
+            <source type="image/webp" srcset="./images/webp/decoraciones/decoracion-4.webp">
+            <img src="./images/webp/decoraciones/decoracion-4.webp" class="decoration decoration-4" alt="" aria-hidden="true" width="924" height="1416" loading="lazy" data-aos="fade-right" data-aos-duration="1200">
+        </picture>
         <div class="section-content">
             <div class="gallery-text" data-aos="fade-down">
                 <h2>¿Te imaginas un libro ilustrado al óleo?</h2>
             </div>
             <div class="inline-gallery">
                 <div class="inline-gallery-item" data-aos="fade-right" data-aos-delay="200">
-                    <img src="./images/oleo/oleo-1.jpg" alt="Óleo 1">
+                    <picture>
+                        <source type="image/jxl" srcset="./images/jxl/oleo/oleo-1.jxl">
+                        <source type="image/avif" srcset="./images/avif/oleo/oleo-1.avif">
+                        <source type="image/webp" srcset="./images/webp/oleo/oleo-1.webp">
+                        <img src="./images/webp/oleo/oleo-1.webp" data-original="./images/original/oleo/oleo-1.jpg" alt="Óleo 1" width="2000" height="1585" loading="lazy">
+                    </picture>
                     <div class="oleo-caption">
                         <h3>Cuadro al óleo</h3>
                     </div>
                 </div>
                 <div class="inline-gallery-item" data-aos="fade-up" data-aos-delay="300">
-                    <img src="./images/oleo/oleo-2.jpg" alt="Óleo 2">
+                    <picture>
+                        <source type="image/jxl" srcset="./images/jxl/oleo/oleo-2.jxl">
+                        <source type="image/avif" srcset="./images/avif/oleo/oleo-2.avif">
+                        <source type="image/webp" srcset="./images/webp/oleo/oleo-2.webp">
+                        <img src="./images/webp/oleo/oleo-2.webp" data-original="./images/original/oleo/oleo-2.jpg" alt="Óleo 2" width="2000" height="1500" loading="lazy">
+                    </picture>
                     <div class="oleo-caption">
                         <h3>Detalle arquitectónico</h3>
                     </div>
                 </div>
                 <div class="inline-gallery-item" data-aos="fade-left" data-aos-delay="400">
-                    <img src="./images/oleo/oleo-3.jpg" alt="Óleo 3">
+                    <picture>
+                        <source type="image/jxl" srcset="./images/jxl/oleo/oleo-3.jxl">
+                        <source type="image/avif" srcset="./images/avif/oleo/oleo-3.avif">
+                        <source type="image/webp" srcset="./images/webp/oleo/oleo-3.webp">
+                        <img src="./images/webp/oleo/oleo-3.webp" data-original="./images/original/oleo/oleo-3.jpg" alt="Óleo 3" width="1080" height="1080" loading="lazy">
+                    </picture>
                     <div class="oleo-caption">
                         <h3>Retrato</h3>
                     </div>
@@ -200,7 +326,12 @@
 
     <!-- SECCIÓN 9: EXPERIENCIA LABORAL -->
     <section id="experiencia" class="section section-experience">
-        <img src="./images/decoraciones/decoracion-5.png" class="decoration decoration-5" alt="" aria-hidden="true" data-aos="fade-left" data-aos-duration="1200">
+        <picture>
+            <source type="image/jxl" srcset="./images/jxl/decoraciones/decoracion-5.jxl">
+            <source type="image/avif" srcset="./images/avif/decoraciones/decoracion-5.avif">
+            <source type="image/webp" srcset="./images/webp/decoraciones/decoracion-5.webp">
+            <img src="./images/webp/decoraciones/decoracion-5.webp" class="decoration decoration-5" alt="" aria-hidden="true" width="1280" height="1280" loading="lazy" data-aos="fade-left" data-aos-duration="1200">
+        </picture>
         <div class="section-content">
             <h2 data-aos="fade-up">Experiencia Laboral</h2>
             <div class="experience-box" data-aos="fade-up" data-aos-delay="200">
@@ -229,21 +360,66 @@
             <span class="close-modal">&times;</span>
             <h2>Exposición en el Instituto</h2>
             <div class="modal-grid">
-                <img src="./images/exposicion/expo-1.jpg" alt="Exposición foto 1">
-                <img src="./images/exposicion/expo-2.jpg" alt="Exposición foto 2">
-                <img src="./images/exposicion/expo-3.jpg" alt="Exposición foto 3">
-                <img src="./images/exposicion/expo-4.jpg" alt="Exposición foto 4">
-                <img src="./images/exposicion/expo-5.jpg" alt="Exposición foto 5">
-                <img src="./images/exposicion/expo-6.jpg" alt="Exposición foto 6">
-                <img src="./images/exposicion/expo-7.jpg" alt="Exposición foto 7">
-                <img src="./images/exposicion/expo-8.jpg" alt="Exposición foto 8">
+                <picture>
+                    <source type="image/jxl" srcset="./images/jxl/exposicion/expo-1.jxl">
+                    <source type="image/avif" srcset="./images/avif/exposicion/expo-1.avif">
+                    <source type="image/webp" srcset="./images/webp/exposicion/expo-1.webp">
+                    <img src="./images/webp/exposicion/expo-1.webp" data-original="./images/original/exposicion/expo-1.jpg" alt="Exposición foto 1" width="1131" height="842" loading="lazy">
+                </picture>
+                <picture>
+                    <source type="image/jxl" srcset="./images/jxl/exposicion/expo-2.jxl">
+                    <source type="image/avif" srcset="./images/avif/exposicion/expo-2.avif">
+                    <source type="image/webp" srcset="./images/webp/exposicion/expo-2.webp">
+                    <img src="./images/webp/exposicion/expo-2.webp" data-original="./images/original/exposicion/expo-2.jpg" alt="Exposición foto 2" width="1500" height="2000" loading="lazy">
+                </picture>
+                <picture>
+                    <source type="image/jxl" srcset="./images/jxl/exposicion/expo-3.jxl">
+                    <source type="image/avif" srcset="./images/avif/exposicion/expo-3.avif">
+                    <source type="image/webp" srcset="./images/webp/exposicion/expo-3.webp">
+                    <img src="./images/webp/exposicion/expo-3.webp" data-original="./images/original/exposicion/expo-3.jpg" alt="Exposición foto 3" width="1500" height="2000" loading="lazy">
+                </picture>
+                <picture>
+                    <source type="image/jxl" srcset="./images/jxl/exposicion/expo-4.jxl">
+                    <source type="image/avif" srcset="./images/avif/exposicion/expo-4.avif">
+                    <source type="image/webp" srcset="./images/webp/exposicion/expo-4.webp">
+                    <img src="./images/webp/exposicion/expo-4.webp" data-original="./images/original/exposicion/expo-4.jpg" alt="Exposición foto 4" width="1500" height="2000" loading="lazy">
+                </picture>
+                <picture>
+                    <source type="image/jxl" srcset="./images/jxl/exposicion/expo-5.jxl">
+                    <source type="image/avif" srcset="./images/avif/exposicion/expo-5.avif">
+                    <source type="image/webp" srcset="./images/webp/exposicion/expo-5.webp">
+                    <img src="./images/webp/exposicion/expo-5.webp" data-original="./images/original/exposicion/expo-5.jpg" alt="Exposición foto 5" width="1500" height="2000" loading="lazy">
+                </picture>
+                <picture>
+                    <source type="image/jxl" srcset="./images/jxl/exposicion/expo-6.jxl">
+                    <source type="image/avif" srcset="./images/avif/exposicion/expo-6.avif">
+                    <source type="image/webp" srcset="./images/webp/exposicion/expo-6.webp">
+                    <img src="./images/webp/exposicion/expo-6.webp" data-original="./images/original/exposicion/expo-6.jpg" alt="Exposición foto 6" width="1500" height="2000" loading="lazy">
+                </picture>
+                <picture>
+                    <source type="image/jxl" srcset="./images/jxl/exposicion/expo-7.jxl">
+                    <source type="image/avif" srcset="./images/avif/exposicion/expo-7.avif">
+                    <source type="image/webp" srcset="./images/webp/exposicion/expo-7.webp">
+                    <img src="./images/webp/exposicion/expo-7.webp" data-original="./images/original/exposicion/expo-7.jpg" alt="Exposición foto 7" width="1500" height="2000" loading="lazy">
+                </picture>
+                <picture>
+                    <source type="image/jxl" srcset="./images/jxl/exposicion/expo-8.jxl">
+                    <source type="image/avif" srcset="./images/avif/exposicion/expo-8.avif">
+                    <source type="image/webp" srcset="./images/webp/exposicion/expo-8.webp">
+                    <img src="./images/webp/exposicion/expo-8.webp" data-original="./images/original/exposicion/expo-8.jpg" alt="Exposición foto 8" width="1500" height="2000" loading="lazy">
+                </picture>
             </div>
         </div>
     </div>
 
     <!-- FOOTER CONTACTO -->
     <footer class="footer" data-aos="fade-up" data-aos-duration="1000">
-        <img src="./images/decoraciones/decoracion-6.png" class="decoration decoration-6" alt="" aria-hidden="true" data-aos="fade-left" data-aos-duration="1200" data-aos-offset="50">
+        <picture>
+            <source type="image/jxl" srcset="./images/jxl/decoraciones/decoracion-6.jxl">
+            <source type="image/avif" srcset="./images/avif/decoraciones/decoracion-6.avif">
+            <source type="image/webp" srcset="./images/webp/decoraciones/decoracion-6.webp">
+            <img src="./images/webp/decoraciones/decoracion-6.webp" class="decoration decoration-6" alt="" aria-hidden="true" width="1080" height="1080" loading="lazy" data-aos="fade-left" data-aos-duration="1200" data-aos-offset="50">
+        </picture>
         <div class="footer-content">
             <h2 style="color: var(--surface-color);" data-aos="fade-up" data-aos-delay="100">Contacto</h2>
             <p>¿Te interesa mi trabajo? ¡Me encantaría hablar contigo!</p>
@@ -277,7 +453,7 @@
                 <p>Página creada por Adrián Cuervo</p>
                 <p>Instagram: <a href="https://instagram.com/adrian_cuervo_" target="_blank">@adrian_cuervo_</a></p>
                 <p>Email: <a href="mailto:adriancuervorodriguez@gmail.com">adriancuervorodriguez@gmail.com</a></p>
-ç            </div>
+            </div>
         </div>
     </footer>
 

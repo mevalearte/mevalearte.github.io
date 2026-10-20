@@ -48,7 +48,7 @@ gsap.fromTo('.logo-circle',
 
 // Secciones - Fade in on scroll
 const sections = document.querySelectorAll('.section:not(.section-1)');
-sections.forEach((section, index) => {
+sections.forEach((section) => {
     gsap.from(section, {
         scrollTrigger: {
             trigger: section,
@@ -130,28 +130,28 @@ const btn = document.getElementById('open-exhibition-btn');
 const span = document.getElementsByClassName('close-modal')[0];
 
 if (btn && modal) {
-    btn.onclick = function() {
+    btn.onclick = function () {
         modal.style.display = "block";
         document.body.style.overflow = "hidden"; // Prevent scrolling
-        
+
         // Reset animation class to trigger it again
         const content = modal.querySelector('.modal-content');
         content.classList.remove('animate-modal');
         void content.offsetWidth; // Trigger reflow
         content.classList.add('animate-modal');
-    }
+    };
 
-    span.onclick = function() {
+    span.onclick = function () {
         modal.style.display = "none";
         document.body.style.overflow = "auto";
-    }
+    };
 
-    window.onclick = function(event) {
-        if (event.target == modal) {
+    window.onclick = function (event) {
+        if (event.target === modal) {
             modal.style.display = "none";
             document.body.style.overflow = "auto";
         }
-    }
+    };
 }
 
 /* ===========================
@@ -183,7 +183,7 @@ if (lightbox && allClickableImages.length > 0) {
         img.addEventListener('click', () => {
             // Determine the group (section or modal)
             const section = img.closest('section') || img.closest('.modal');
-            
+
             if (section) {
                 const imagesInSection = section.querySelectorAll('img');
                 currentGroupImages = Array.from(imagesInSection).filter(i => i.matches(contentImagesSelector));
@@ -193,7 +193,22 @@ if (lightbox && allClickableImages.length > 0) {
             currentImageIndex = currentGroupImages.indexOf(img);
             if (currentImageIndex !== -1) {
                 lightbox.style.display = 'flex';
-                lightboxImg.src = img.src;
+
+                // Mostrar imagen actual de inmediato
+                const originalSrc = img.dataset.original || img.currentSrc || img.src;
+                lightboxImg.src = img.currentSrc || img.src;
+
+                // Si la versión original de máxima calidad no se ha cargado todavía, cargarla para el visor
+                if (originalSrc && originalSrc !== lightboxImg.src) {
+                    const hiRes = new Image();
+                    hiRes.src = originalSrc;
+                    hiRes.onload = () => {
+                        if (lightbox.style.display === 'flex' && currentGroupImages[currentImageIndex] === img) {
+                            lightboxImg.src = originalSrc;
+                        }
+                    };
+                }
+
                 document.body.style.overflow = 'hidden'; // Bloquear scroll
                 updateLightboxUI();
                 resetZoom();
@@ -208,7 +223,7 @@ if (lightbox && allClickableImages.length > 0) {
     };
 
     lightboxClose.addEventListener('click', closeLightbox);
-    
+
     // Cerrar al hacer click fuera de la imagen
     lightbox.addEventListener('click', (e) => {
         if (e.target === lightbox) closeLightbox();
@@ -232,7 +247,21 @@ if (lightbox && allClickableImages.length > 0) {
         if (index < 0) index = currentGroupImages.length - 1;
         if (index >= currentGroupImages.length) index = 0;
         currentImageIndex = index;
-        lightboxImg.src = currentGroupImages[currentImageIndex].src;
+
+        const targetImg = currentGroupImages[currentImageIndex];
+        const originalSrc = targetImg.dataset.original || targetImg.currentSrc || targetImg.src;
+        lightboxImg.src = targetImg.currentSrc || targetImg.src;
+
+        if (originalSrc && originalSrc !== lightboxImg.src) {
+            const hiRes = new Image();
+            hiRes.src = originalSrc;
+            hiRes.onload = () => {
+                if (lightbox.style.display === 'flex' && currentGroupImages[currentImageIndex] === targetImg) {
+                    lightboxImg.src = originalSrc;
+                }
+            };
+        }
+
         resetZoom();
     };
 
@@ -290,7 +319,7 @@ if (lightbox && allClickableImages.length > 0) {
         currentZoom = Math.min(Math.max(1, currentZoom), 5); // Limitar zoom entre 1x y 5x
         updateTransform();
         lightboxImg.style.cursor = currentZoom > 1 ? 'zoom-out' : 'zoom-in';
-    });
+    }, { passive: false });
 
     // Lógica de Panning (Deslizar)
     lightboxImg.addEventListener('mousedown', (e) => {
@@ -321,53 +350,74 @@ if (lightbox && allClickableImages.length > 0) {
 }
 
 /* ===========================
-   OPTIMIZACIÓN DE PERFORMANCE
+   CARGA PROGRESIVA DE IMÁGENES ORIGINALES (HD)
    =========================== */
+function initProgressiveImageUpgrade() {
+    // Si el usuario tiene activo "Ahorro de datos" o conexión muy lenta (2G), no descargar originales automáticamente
+    const conn = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
+    const isSaveData = conn && (conn.saveData === true || conn.effectiveType === '2g' || conn.effectiveType === 'slow-2g');
+    if (isSaveData) return;
 
-// Lazy loading images (si es necesario)
-if ('IntersectionObserver' in window) {
-    const images = document.querySelectorAll('img[data-src]');
+    if (!('IntersectionObserver' in window)) return;
 
-    const imageObserver = new IntersectionObserver((entries, observer) => {
+    const upscaledImages = document.querySelectorAll('img[data-original]');
+    const timers = new WeakMap();
+
+    const upgradeObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
+            const img = entry.target;
+
             if (entry.isIntersecting) {
-                const img = entry.target;
-                img.src = img.dataset.src;
-                img.removeAttribute('data-src');
-                imageObserver.unobserve(img);
+                // Cuando el usuario se queda observando la imagen (~1.5s), iniciar descarga del original
+                const timer = setTimeout(() => {
+                    const originalSrc = img.dataset.original;
+                    if (!originalSrc || img.dataset.loadedOriginal === 'true') return;
+
+                    // Precarga silenciosa en segundo plano sin parpadeos
+                    const preloadImg = new Image();
+                    preloadImg.src = originalSrc;
+                    preloadImg.onload = () => {
+                        const picture = img.closest('picture');
+                        if (picture) {
+                            picture.querySelectorAll('source').forEach(s => s.remove());
+                        }
+                        img.src = originalSrc;
+                        img.dataset.loadedOriginal = 'true';
+                        upgradeObserver.unobserve(img);
+                    };
+                }, 1500);
+
+                timers.set(img, timer);
+            } else {
+                // Si el usuario pasa de largo antes de 1.5s, cancelar el temporizador
+                const timer = timers.get(img);
+                if (timer) {
+                    clearTimeout(timer);
+                    timers.delete(img);
+                }
             }
         });
+    }, {
+        threshold: 0.35 // Al menos 35% visible para considerarla en foco de lectura
     });
 
-    images.forEach(img => imageObserver.observe(img));
+    upscaledImages.forEach(img => upgradeObserver.observe(img));
 }
+
+document.addEventListener('DOMContentLoaded', initProgressiveImageUpgrade);
 
 /* ===========================
    EVENTOS Y CALLBACKS
    =========================== */
 
-// Reinicializar ScrollTrigger cuando resize
+// Reinicializar ScrollTrigger cuando resize (con debounce ligero)
+let resizeTimeout;
 window.addEventListener('resize', () => {
-    ScrollTrigger.getAll().forEach(trigger => trigger.refresh());
-});
-
-// Log cuando las secciones son visibles
-const observerCallback = (entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            console.log(`Sección visible: ${entry.target.className}`);
-        }
-    });
-};
-
-const observerOptions = {
-    threshold: 0.3
-};
-
-const sectionObserver = new IntersectionObserver(observerCallback, observerOptions);
-document.querySelectorAll('.section').forEach(section => {
-    sectionObserver.observe(section);
-});
+    clearTimeout(resizeTimeout);
+    resizeTimeout = setTimeout(() => {
+        ScrollTrigger.getAll().forEach(trigger => trigger.refresh());
+    }, 150);
+}, { passive: true });
 
 /* ===========================
    PARTÍCULAS HEADER
@@ -381,7 +431,7 @@ function createParticles() {
     for (let i = 0; i < particleCount; i++) {
         const particle = document.createElement('div');
         particle.classList.add('particle');
-        
+
         // Propiedades aleatorias
         const size = Math.random() * 15 + 5; // Entre 5px y 20px
         const left = Math.random() * 100; // Posición horizontal %
@@ -423,7 +473,7 @@ if (heroTitle) {
     const originalText = heroTitle.textContent;
     heroTitle.textContent = '';
     heroTitle.classList.add('typing-cursor');
-    
+
     // Iniciar cuando sea visible al hacer scroll
     ScrollTrigger.create({
         trigger: '.hero-text',
